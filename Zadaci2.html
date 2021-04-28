@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Zadaci2</title>
+		<style>
+			h1 {
+				margin: 0;
+			}
+			body {
+				margin: 0;
+			}
+
+			.container {
+				height: 100%;
+				width: 100%;
+				position: absolute;
+			}
+
+			.row1 {
+				height: 33.33%;
+			}
+
+			.row2 {
+				height:33.33%;
+			}
+
+			.row3 {
+				height:33.33%;
+			}
+
+			
+
+		</style>
+	</head>
+	<body>
+
+		<div class="container">
+			<div class="row1" id="rowOne">
+		
+
+		<h1>Domaci zadatak</h1>
+
+		<h2>Kalkulator</h2>
+
+		<!--
+			Napisati JavaScript kod za kalkulator.
+			- Klikom na dugme „+“, u input polju „Rezultat“ prikazuje se zbir brojeva unetih u polja „Prvi broj“
+			i „Drugi broj“. Npr. za unete brojeve 4 i 6, u polju „Rezultat“ prikazuje se „4 + 6 = 10“
+			- Klikom na dugme „-“, u input polju „Rezultat“ prikazuje se razlika brojeva unetih u polja „Prvi
+			broj“ i „Drugi broj“. Npr. za unete brojeve 4 i 6, u polju „Rezultat“ prikazuje se „4 - 6 = -2“
+			- Klikom na dugme „*“, u input polju „Rezultat“ prikazuje se proizvod brojeva unetih u polja „Prvi
+			broj“ i „Drugi broj“. Npr. za unete brojeve 4 i 6, u polju „Rezultat“ prikazuje se „4 * 6 = 24“
+			- Klikom na dugme „/“, u input polju „Rezultat“ prikazuje se količnik brojeva unetih u polja „Prvi
+			broj“ i „Drugi broj“ zaokruženo na dve decimale. Npr. za unete brojeve 4 i 6, u polju „Rezultat“
+			prikazuje se „4 / 6 = 0.66“
+			- Klikom na dugme „%“, u input polju „Rezultat“ prikazuje se ostatak pri celobrojnom deljenju
+			brojeva unetih u polja „Prvi broj“ i „Drugi broj“. Npr. za unete brojeve 4 i 6, u polju „Rezultat“
+			prikazuje se „4 % 6 = 4“
+			- Klikom na dugme „^“, u input polju „Rezultat“ prikazuje se broj unet u polje „Prvi broj“ dignut na
+			stepen koji je unet u polje „Drugi broj“. Npr. za unete brojeve 4 i 6, u polju „Rezultat“ prikazuje se
+			„4 ^ 6 = 256“
+			- Klikom na dugme „Celobrojno deljenje“, u input polju „Rezultat“ prikazuje se količnik brojeva
+			unetih u polja „Prvi broj“ i „Drugi broj“. Npr. za unete brojeve 4 i 6, u polju „Rezultat“ prikazuje se
+			„4 (/) 6 = 0“
+		-->
+		<form action="#" id="kalkulator">
+			<input type="number" max="500" min="-500" id="prvi_broj" placeholder="Prvi broj"><br>
+			<input type="number" max="500" min="-500" id="drugi_broj" placeholder="Drugi broj"><br>
+			<button id="plus">+</button>
+			<button id="minus">-</button>
+			<button id="puta">*</button>
+			<button id="podeljeno">/</button>
+			<button id="modulo">%</button>
+			<button id="stepen">^</button>
+			<button id="celobrojno_deljenje">Celobrojno deljenje</button><br>
+			<input type="text" disabled="disabled" id="rezultat" placeholder="Rezultat">
+		</form>
+		
+		<script>
+			// ovde uneti kod za kalkulator
+			var zbir = document.getElementById('plus');
+			zbir.onclick = function(event) {
+				var a = document.getElementById('prvi_broj').value;
+				var b = document.getElementById('drugi_broj').value;
+				var c = parseInt(a) + parseInt(b);
+				document.getElementById('rezultat').value = a + " + " + b + " = " + c;
+			}
+			
+			var razlika = document.getElementById('minus');
+			razlika.onclick = function(event) {
+				var a = document.getElementById('prvi_broj').value;
+				var b = document.getElementById('drugi_broj').value;
+				var c = parseInt(a) - parseInt(b);
+				document.getElementById('rezultat').value = a + " - " + b + " = " + c;
+			}
+
+			var proizvod = document.getElementById('puta');
+			proizvod.onclick = function(event) {
+				var a = document.getElementById('prvi_broj').value;
+				var b = document.getElementById('drugi_broj').value;
+				var c = parseInt(a) * parseInt(b);
+				document.getElementById('rezultat').value = a + " * " + b + " = " + c;
+			}
+
+			var kolicnik = document.getElementById('podeljeno');
+			kolicnik.onclick = function(event) {
+				var a = document.getElementById('prvi_broj').value;
+				var b = document.getElementById('drugi_broj').value;
+				var c = parseInt(a) / parseInt(b);
+				document.getElementById('rezultat').value = a + " / " + b + " = " + c.toFixed(2);
+			}
+
+			var modulo = document.getElementById('modulo');
+			modulo.onclick = function(event) {
+				var a = document.getElementById('prvi_broj').value;
+				var b = document.getElementById('drugi_broj').value;
+				var c = parseInt(a) % parseInt(b);
+				document.getElementById('rezultat').value = a + " % " + b + " = " + c;
+			}
+
+			var stepenovanje = document.getElementById('stepen');
+			stepenovanje.onclick = function(event) {
+				var a = document.getElementById('prvi_broj').value;
+				var b = document.getElementById('drugi_broj').value;
+				var c = Math.pow(parseInt(a), parseInt(b));
+				document.getElementById('rezultat').value = a + " % " + b + " = " + c;
+			}
+
+			var celobrojnoDeljenje = document.getElementById('celobrojno_deljenje');
+			celobrojnoDeljenje.onclick = function(event) {
+				var a = document.getElementById('prvi_broj').value;
+				var b = document.getElementById('drugi_broj').value;
+				var c = Math.round(parseInt(a) / parseInt(b));
+				document.getElementById('rezultat').value = a + " / " + b + " = " + c;
+			}
+		</script>
+
+		<hr>
+			</div>
+			<div class="row2" id="rowTwo">
+		<h2>Brojac karaktera</h2>
+
+		<!-- Napisati JavaScript kod koji broji slova koja korisnik unosi u polje „Ime“, a rezultat automatski prikazuje u pasusu koji ima id="broj_slova". Ako korisnik unese od 1 do 5 slova, boja pozadine pasusa treba da postane crvena, ako unese od 6 do 10 treba da postane žuta, a ako unese preko 10 treba da postane zelena. --> 
+
+		<input type="text" id="ime" placeholder="Unesite Vase ime">
+		<p id="broj_slova"></p>
+
+		<script>
+			document.getElementById('ime').onblur = function(event) {
+				var ime = document.getElementById('ime').value;
+				var duzina = ime.length;
+				var paragraf = document.getElementById('broj_slova');
+				paragraf.innerHTML = "Duzina Vaseg imena je " + duzina;
+				if(duzina < 6) {
+					paragraf.style.backgroundColor = "#f00";
+				} else if(duzina < 11) {
+					paragraf.style.backgroundColor = "#ff0";
+				} else {
+					paragraf.style.backgroundColor = "#0f0";
+				}
+			}
+
+		</script>
+
+		<hr>
+
+		<h2>Kursor</h2>
+
+		<!-- Napisati JavaScript kod koji menja boju pozadine stranice u zavisnosti od mesta na kome se kursor miša nalazi na stranici.
+		- Ako se kursor nalazi u prvoj trećini visine stranice, boju pozadine obojiti u yellow
+		- Ako se kursor nalazi u drugoj trećini visine stranice, boju pozadine obojiti u rgb(200, 50, 250)
+		- Ako se kursor nalazi u poslednjoj trećini visine stranice, boju pozadine obojiti u #fff
+		-->
+
+		<script>
+			var row1 = document.getElementById('rowOne');
+			var row2 = document.getElementById('rowTwo');
+			var row3 = document.getElementById('rowThree');
+
+			row1.addEventListener("mouseenter", function() {
+				document.body.style.backgroundColor = "yellow";
+			});
+
+			row1.addEventListener("mouseleave", function() {
+				document.body.style.backgroundColor = "white";
+			});
+
+			row2.addEventListener("mouseenter", function() {
+				document.body.style.backgroundColor = "rgb(200, 50, 250)";
+			});
+
+			row2.addEventListener("mouseleave", function() {
+				document.body.style.backgroundColor = "white";
+			});
+
+			row3.addEventListener("mouseenter", function() {
+				document.body.style.backgroundColor = "#fff";
+			});
+
+			row3.addEventListener("mouseleave", function() {
+				document.body.style.backgroundColor = "white";
+			});
+		</script>
+			
+		
+		<h2>Generator slučajnih brojeva</h2>
+		</div>
+			<div class="row3" id="rowThree">
+
+		<!-- 
+		a) Napisati JavaScript funkciju koja preko return naredbe vraća slučajan broj u intervalu koji se zadaje preko dva argumenta 
+		donja_granica i gornja_granica
+		b) Kada se klikne na dugme „Generiši“, pozvati napisanu funkciju iz primera pod a) i proslediti joj brojeve unete u polja „Donja granica“ i „Gornja Granica“, a rezultat prikazati u polju „Slučajan broj“
+		-->
+
+		<input type="number" id="gornja_granica" placeholder="Gornja granica">
+		<input type="numbar" id="donja_granica" placeholder="Donja granica">
+		<button id="generisi">Generisi</button><br>
+		<input type="number" id="slucajan_broj" disabled="disabled" placeholder="Slucajan broj">
+
+		<script>
+			var generisi = document.getElementById('generisi');
+			generisi.onclick = function(donjaGranica, gornjaGranica) {
+				var donjaGranica = document.getElementById('donja_granica').value;
+				var gornjaGranica = document.getElementById('gornja_granica').value;
+				return document.getElementById('slucajan_broj').value = Math.round(Math.random() * (parseInt(gornjaGranica) - parseInt(donjaGranica)) + parseInt(donjaGranica));
+			}
+			
+		</script>
+
+		<hr>
+
+		<h2>Pozadinska slika</h2>
+
+		<!-- Napisati JavaScript funkciju koja kao argument prima niz koji za svoje elemente ima putanje do slika. Funkcija treba da vrati proizvoljno putanju slike iz zadatog niza
+		Kada se kursorom miša uđe u div koji ima id="zadaj_pozadinu", treba postaviti proizvoljnu sliku kao pozadinu iz niza, čiju putanju daje prethodno napisana funkcija
+		Kada se mišem izađe iz diva, treba promeniti sliku na isti način kao i kada se u njega ušlo kursorom miša
+		NAPOMENA: pronaci 5 slika na internetu i smestiti ih u isti folder kao i ovaj fajl, slike imenovati „slika1.jpg“, „slika2.jpg“, „slika3.jpg“, „slika4.jpg“, „slika5.jpg“
+		-->
+
+		<div id="zadaj_pozadinu">
+ 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita consectetur officia magnam inventore suscipit possimus aspernatur, aut, tempore nam fugiat incidunt iusto nemo aliquam ut dicta eos sit recusandae tempora. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita consectetur officia magnam inventore suscipit possimus aspernatur, aut, tempore nam fugiat incidunt iusto nemo aliquam ut dicta eos sit recusandae tempora.bLorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita consectetur officia magnam inventore suscipit possimus aspernatur, aut, tempore nam fugiat incidunt iusto nemo aliquam ut dicta eos sit recusandae tempora.
+ 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita consectetur officia magnam inventore suscipit possimus aspernatur, aut, tempore nam fugiat incidunt iusto nemo aliquam ut dicta eos sit recusandae tempora. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita consectetur officia magnam inventore suscipit possimus aspernatur, aut, tempore nam fugiat incidunt iusto nemo aliquam ut dicta eos sit recusandae tempora.bLorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita consectetur officia magnam inventore suscipit possimus aspernatur, aut, tempore nam fugiat incidunt iusto nemo aliquam ut dicta eos sit recusandae tempora.
+ 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita consectetur officia magnam inventore suscipit possimus aspernatur, aut, tempore nam fugiat incidunt iusto nemo aliquam ut dicta eos sit recusandae tempora. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita consectetur officia magnam inventore suscipit possimus aspernatur, aut, tempore nam fugiat incidunt iusto nemo aliquam ut dicta eos sit recusandae tempora.bLorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita consectetur officia magnam inventore suscipit possimus aspernatur, aut, tempore nam fugiat incidunt iusto nemo aliquam ut dicta eos sit recusandae tempora.
+		</div>
+
+		<script>
+			var slike = ['slika1.jpg', 'slika2.jpg', 'slika3.jpg', 'slika4.jpg', 'slika5.jpg']
+
+ 			var tekst = document.getElementById('zadaj_pozadinu');
+ 			tekst.onmouseover = function(slike) {
+ 				var i = Math.round(Math.random() * 4);
+
+ 				if(i == 0) {
+ 					document.getElementById('zadaj_pozadinu').style.backgroundImage = 'url(slika1.jpg)';
+ 				} else if(i == 1) {
+ 					document.getElementById('zadaj_pozadinu').style.backgroundImage = 'url(slika2.jpg)';
+ 				} else if(i == 2) {
+ 					document.getElementById('zadaj_pozadinu').style.backgroundImage = 'url(slika3.jpg)';
+ 				} else if(i == 3) {
+ 					document.getElementById('zadaj_pozadinu').style.backgroundImage = 'url(slika4.jpg)';
+ 				} else {
+ 					document.getElementById('zadaj_pozadinu').style.backgroundImage = 'url(slika5.jpg)';
+ 				}
+ 			}
+
+ 			tekst.onmouseout = function(event) {
+				var i = Math.round(Math.random() * 4);
+ 				
+ 				if(i == 0) {
+ 					document.getElementById('zadaj_pozadinu').style.backgroundImage = 'url(slika1.jpg)';
+ 				} else if(i == 1) {
+ 					document.getElementById('zadaj_pozadinu').style.backgroundImage = 'url(slika2.jpg)';
+ 				} else if(i == 2) {
+ 					document.getElementById('zadaj_pozadinu').style.backgroundImage = 'url(slika3.jpg)';
+ 				} else if(i == 3) {
+ 					document.getElementById('zadaj_pozadinu').style.backgroundImage = 'url(slika4.jpg)';
+ 				} else {
+ 					document.getElementById('zadaj_pozadinu').style.backgroundImage = 'url(slika5.jpg)';
+ 				} 				
+ 			}
+	
+		</script>
+
+		</div>
+	</div>
+	</body>
+</html>
